@@ -75,7 +75,7 @@
 				canHandle: function( evt ) {
 					var data = evt.data,
 						// Meta tags are stripped in dataValue, so it is necessary to read raw text/html for further regexps
-						mswordHtml = data.dataTransfer.getData( 'text/html', true ) || data.dataValue,
+						mswordHtml = CKEDITOR.plugins.pastetools.getClipboardData( data, 'text/html' ),
 						hasMetaGeneratorTag = /<meta\s+name=["']?generator["']?\s+content=["']?/gi,
 						officeMetaRegexp = /<meta\s+name=["']?generator["']?\s+content=["']?microsoft/gi,
 						wordRegexp = /(class="?Mso|style=["'][^"]*?\bmso\-|w:WordDocument|<o:\w+>|<\/font>)/,
